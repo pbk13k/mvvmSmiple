@@ -23,8 +23,8 @@ class RetrofitHelper(private var type: Type) {
     private val ERROR_MESSAGE = "에러가 발생했습니다."
 
     enum class Type constructor(val value: String) {
-        MAIN("https://bizq.kr:8443/"),
-        V3("https://bizq.kr:8443/v3/")
+        MAIN("https://api.punkapi.com/v2/"),
+        V3("https://api.punkapi.com/")
     }
 
     private var API_BASE_URL = ""

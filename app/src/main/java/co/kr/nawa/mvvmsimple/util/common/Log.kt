@@ -1,8 +1,8 @@
 package co.kr.nawa.mvvmsimple.util.common
 
 import android.util.Log
+import co.kr.nawa.mvvmsimple.BuildConfig
 
-import org.koin.android.BuildConfig
 
 val TAG:String ="LOG"
 
