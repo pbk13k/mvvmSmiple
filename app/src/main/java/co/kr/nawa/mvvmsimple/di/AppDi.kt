@@ -2,6 +2,7 @@ package co.kr.nawa.mvvmsimple.di
 
 import co.kr.nawa.mvvmsimple.util.async.Repository
 import co.kr.nawa.mvvmsimple.util.async.RetrofitHelper
+import co.kr.nawa.mvvmsimple.viewmodel.MainViewModel
 import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.parameter.parametersOf
@@ -23,9 +24,9 @@ val app= module {
 
 val viewModels= module {
 
-//    viewModel {
-////        IntroViewModel(get{ parametersOf(RestHelper.Type.SUB) })
-//    }
+    viewModel {
+        MainViewModel(get{ parametersOf(RetrofitHelper.Type.MAIN) })
+    }
 
 
 

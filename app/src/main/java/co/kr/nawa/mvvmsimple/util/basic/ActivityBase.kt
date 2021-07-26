@@ -5,15 +5,14 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.google.android.material.snackbar.Snackbar
-
+import co.kr.nawa.mvvmsimple.BR
 
 
 abstract class ActivityBase<T : ViewDataBinding,VM: ViewModelBasic>: AppCompatActivity() {
 
 
     abstract val layoutResourceId: Int
-    lateinit var viewDataBinding: T
+    lateinit var binding: T
     abstract val viewModel : VM
 
     protected abstract fun init()
@@ -25,9 +24,9 @@ abstract class ActivityBase<T : ViewDataBinding,VM: ViewModelBasic>: AppCompatAc
 
 
         super.onCreate(savedInstanceState)
-        viewDataBinding = DataBindingUtil.setContentView(this, layoutResourceId)
-//        viewDataBinding.setVariable(BR.viewModel,viewModel)
-        viewDataBinding.lifecycleOwner=this
+        binding = DataBindingUtil.setContentView(this, layoutResourceId)
+        binding.setVariable(BR.viewModel,viewModel)
+        binding.lifecycleOwner=this
 
         initDefault()
 
@@ -37,19 +36,11 @@ abstract class ActivityBase<T : ViewDataBinding,VM: ViewModelBasic>: AppCompatAc
     }
 
     private fun initDefault(){
-
-
         viewModel.msg.observe(this,{
             showToast(it)
         })
-
-
     }
 
-
-    fun snackbarShow(str:String){
-        Snackbar.make(window.decorView.rootView,str, Snackbar.LENGTH_LONG).show()
-    }
 
     fun showToast(str:String){
         Toast.makeText(applicationContext,str, Toast.LENGTH_LONG).show()

@@ -5,6 +5,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.NonNull
 import androidx.recyclerview.widget.RecyclerView
+import co.kr.nawa.mvvmsimple.R
+import co.kr.nawa.mvvmsimple.databinding.ListItemBinding
 import co.kr.nawa.mvvmsimple.holder.*
 
 
@@ -20,9 +22,14 @@ class Adapters(var layout: Int,private var items: ArrayList<out Any>) : Recycler
         var view = inflater.inflate(layout, parent, false)
 
         return when(layout){
-//            R.layout.item_name_card2->  CustmoerViewHolder(view, onClickListener,onPositionCallbackListener)
-
-            else -> CustmoerViewHolder(view, onClickListener)
+            R.layout.list_item->{
+                val binding= ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                ItemViewHolder(binding, onClickListener)
+            }
+            else -> {
+                val binding= ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                ItemViewHolder(binding, onClickListener)
+            }
         }
     }
 

@@ -7,7 +7,7 @@ import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
+import co.kr.nawa.mvvmsimple.BuildConfig
 
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -24,7 +24,7 @@ class RetrofitHelper(private var type: Type) {
 
     enum class Type constructor(val value: String) {
         MAIN("https://api.punkapi.com/v2/"),
-        V3("https://api.punkapi.com/")
+        V3("https://api.punkapi.com/v2/")
     }
 
     private var API_BASE_URL = ""
